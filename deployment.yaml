@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-deployment
+spec:
+  selector:
+    matchLabels:
+      app: test
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: test
+    spec:
+      containers:
+      - name: app
+        image: test-app:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+      # NOTE: the volume and volume mount below are used to sync the pod with and the host
+        volumeMounts:
+        - mountPath: /work
+          name: test-volume
+      volumes:
+      - name: test-volume
+        hostPath:
+          path: /dev-in-k8s
