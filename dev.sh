@@ -8,5 +8,5 @@
             --listen=:40000 \
             --headless=true \
             --api-version=2 \
-            --continue \
-            --accept-multiclient
+            --accept-multiclient \
+            --continue

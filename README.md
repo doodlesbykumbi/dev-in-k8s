@@ -28,7 +28,7 @@ docker build -f Dockerfile -t test-app:latest .
 
 Confirm the app image works locally
 ```
-docker run -it --rm -v $PWD:/work -p 8080:8080 test-app:latest 
+docker run -it --rm -v $PWD:/work -p 8080:8080 -p 40000:40000 test-app:latest 
 ```
 
 Push the app image into kind, or a remote registry
